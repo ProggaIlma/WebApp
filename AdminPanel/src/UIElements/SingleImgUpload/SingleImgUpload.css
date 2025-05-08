@@ -1,0 +1,86 @@
+.stckdiv {
+  display: flex;
+  gap: 5px;
+  color: black;
+  margin-bottom: 30px;
+}
+.simage_div {
+  margin-right: 5px;
+  position: relative;
+  margin-top: 0px;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.simage_div img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.simage_div .sdelete_button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  transform: translate(50%, 50%);
+  background: black;
+  color: white;
+  font-family: sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 50%;
+  -webkit-transition: visibility 0s, opacity 0.5s linear;
+  transition: visibility 0s, opacity 0.5s linear;
+  height: 80px;
+  width: 80px;
+  font-size: 50px;
+  text-align: center;
+}
+
+.sdelete_button p {
+  font-size: 50px;
+  text-align: center;
+}
+
+.simage_div:hover {
+  cursor: pointer;
+}
+
+.simage_div:hover .sdelete_button {
+  visibility: visible;
+  opacity: 0.7;
+  align-items: center;
+}
+
+.file {
+  display: none;
+}
+
+.sigallery_logo {
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.noimage_div {
+  margin-right: 5px;
+  position: relative;
+  margin-top: 0px;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.noimage img {
+  width: 30%;
+  height: 30%;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.noimage_div:hover {
+  cursor: pointer;
+}

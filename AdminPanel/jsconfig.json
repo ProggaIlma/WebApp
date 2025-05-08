@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@AuthPages/*": ["./src/AuthPages/*"],
+      "@UIElements/*": ["./src/UIElements/*"],
+      "@Styles*": ["./src/Styles/*"],
+      "@Shared*": ["./src/Shared/*"],
+      "@Theme*": ["./src/Theme/*"],
+      "@Assets*": ["./src/assets/*"],
+      "@Layouts*": ["./src/Layouts/*"],
+      "@ModulePages*": ["./src/ModulePages/*"]
+    }
+  }
+}

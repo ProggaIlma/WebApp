@@ -1,0 +1,15 @@
+div.ant-upload {
+    width: 100%;
+  }
+  .fleeboxx {
+    width: 100%;
+    display: flex;
+    direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .ondelicon:hover {
+    cursor: pointer;
+  }
+  
