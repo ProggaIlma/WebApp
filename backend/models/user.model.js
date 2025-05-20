@@ -1,7 +1,7 @@
 import { Schema, model } from "mongoose";
 import crypto from "crypto"; 
 import { createHmac } from 'crypto';
-import generateToken from "../services/authentication.js"; // Adjust the path as necessar
+import {generateToken} from "../services/authentication.js"; // Adjust the path as necessar
 const userSchema = new Schema(
   {
     fullName: {
@@ -67,7 +67,7 @@ console.log(user);
       .update(password)
       .digest("hex");
 if(hashedPassword!=userProvidedHash) throw new Error("Passwords donot match");
-  return token = generateToken(user);
+  return generateToken(user);
 });
 
 const User = model("user", userSchema);
