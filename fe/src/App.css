@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  margin:0;padding: 0;
+  background-color:white
+}
+
+.default_color{
+  color:#44776d
+}
+.secondary_color{
+  color:#ea4b2d
+}
+.color_black{
+  color:'#232323'
+}
+.bg_secondary_color{
+  background-color:#ea4b2d
+}
+.bg_primary_color{
+  background-color:#44776d
+}
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+} 
+
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: #afb4be48;
+}
+::-webkit-scrollbar-thumb {
+  background: #eab840;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #eab840;
+}
+
+
+.MuiPickersDay-root,
+.MuiDayCalendar-weekDayLabel {
+  font-size: 14px !important;
+}
+
