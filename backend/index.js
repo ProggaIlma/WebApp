@@ -6,6 +6,8 @@ import userrouter from './routes/user.route.js';
 import productrouter from './routes/product.route.js';
 import categoryrouter from './routes/category.route.js';
 import uploadrouter from './routes/upload.route.js';
+import orderrouter from './routes/order.route.js';
+import reviewrouter from './routes/review.route.js';
 dotenv.config();
 
 const app = express();
@@ -23,7 +25,8 @@ app.use("/user", userrouter);
 app.use("/product", productrouter);
 app.use("/category", categoryrouter);
 app.use("/upload", uploadrouter);
-
+app.use("/order", orderrouter);
+app.use("/review", reviewrouter);
 
 // Start server
 const PORT = process.env.PORT || 5000;

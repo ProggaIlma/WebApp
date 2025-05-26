@@ -1,0 +1,3 @@
+//theKeys
+const devFirebaseVapidKey = 'BJg6wmbJFpP2gsRFN_EnSaxIYbXuMv-cehahTqS416pT0Cln6qk9xQjVG1aANSyxAGfoEtOBRkNPogH9ZbFoaN4';
+export const firebaseVapidKey = devFirebaseVapidKey;
