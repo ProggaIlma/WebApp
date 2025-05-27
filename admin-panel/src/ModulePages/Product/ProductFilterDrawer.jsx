@@ -6,7 +6,7 @@ import { Button, Col, Drawer, Flex, Row } from 'antd';
 import React, { Fragment, useState } from 'react';
 import { endTime, startTime } from '@Shared/Utils/utils';
 
-const PaymentFilterDrawer = ({ setFilterBy }) => {
+const ProductFilterDrawer = ({ setFilterBy }) => {
   const [open, setOpen] = useState(false);
   const [isFormLoading, setIsFormLoading] = useState(false);
 
@@ -19,18 +19,18 @@ const PaymentFilterDrawer = ({ setFilterBy }) => {
   };
 
   const initialFormState = {
-    payment_expiry_from: {
+    product_expiry_from: {
       elementType: 'datepicker',
-      elememtConfig: { placeholder: 'Payment Expiry From', arialabel: null },
+      elememtConfig: { placeholder: 'Product Expiry From', arialabel: null },
       validations: { errorM: null, valid: true },
       validators: { required: false },
       touched: false,
       value: '',
       disabled: false,
     },
-    payment_expiry_to: {
+    product_expiry_to: {
       elementType: 'datepicker',
-      elememtConfig: { placeholder: 'Payment Expiry To', arialabel: null },
+      elememtConfig: { placeholder: 'Product Expiry To', arialabel: null },
       validations: { errorM: null, valid: true },
       validators: { required: false },
       touched: false,
@@ -44,13 +44,13 @@ const PaymentFilterDrawer = ({ setFilterBy }) => {
   const onApplyFilter = () => {
     const filterValues = getNonEmptyValuesFromFormState();
 
-    if (filterValues.payment_expiry_from) {
-      const startDate = startTime(filterValues.payment_expiry_from);
-      filterValues.payment_expiry_from = startDate;
+    if (filterValues.product_expiry_from) {
+      const startDate = startTime(filterValues.product_expiry_from);
+      filterValues.product_expiry_from = startDate;
     }
-    if (filterValues.payment_expiry_to) {
-      const endDate = endTime(filterValues.payment_expiry_to);
-      filterValues.payment_expiry_to = endDate;
+    if (filterValues.product_expiry_to) {
+      const endDate = endTime(filterValues.product_expiry_to);
+      filterValues.product_expiry_to = endDate;
     }
 
     setFilterBy(filterValues);
@@ -103,4 +103,4 @@ const PaymentFilterDrawer = ({ setFilterBy }) => {
   );
 };
 
-export default PaymentFilterDrawer;
+export default ProductFilterDrawer;

@@ -1,15 +1,13 @@
 const serverUrl =
-  "https://genai-backend-fbe4ecgffrh4hzhs.southeastasia-01.azurewebsites.net/api";
-const localUrl = "http://localhost:5000/";
+  "http://localhost:5000";
+const localUrl = "http://localhost:5000";
 
 export const baseURL = serverUrl;
 export const loginURL = `${baseURL}/tz/login`;
 export const setPasswordURL = `${baseURL}/tz/set-password`;
 export const resetPasswordReqURL = `${baseURL}/tz/forgot-password`;
 
-//Product
-// http://localhost:5000/product/getProducts?page=1&limit=5
-export const productApi = `${baseURL}/product/getProducts`;
+
 
 // Image Upload
 export const uploadImageToCloud = `${baseURL}/crm/upload-image`;
@@ -25,17 +23,17 @@ export const subscriberUrl = `${baseURL}/tz/org-subscribers`;
 export const subscriberInfoUrl = `${baseURL}/tz/org-subscriber-info`;
 export const subscriptionPlansUrl = `${baseURL}/org/all-subplans`;
 export const orgMembersUrl = `${baseURL}/tz/org-members`;
-export const orgPaymentsUrl = `${baseURL}/tz/org-payments`;
+export const orgProductsUrl = `${baseURL}/tz/org-products`;
 
 //Subscription
 
 export const subscriptionApi = `${baseURL}/tz/subscription`;
 // TopUp
 export const topUpAPI = `${baseURL}/tz/topup`;
-//Payment
-export const paymentDetailsApi = `${baseURL}/tz/payments/get-payment`;
-export const paymentApi = `${baseURL}/tz/payments/get-payments`;
-export const paymentUpdateApi = `${baseURL}/tz/payments/update-payment`;
+//Product
+export const productDetailsApi = `${baseURL}/tz/products/get-product`;
+export const productApi = `${baseURL}/product/getProducts`;
+export const productUpdateApi = `${baseURL}/tz/products/update-product`;
 
 // setting
 export const generalSettingAPI = `${baseURL}/tz/setting`;

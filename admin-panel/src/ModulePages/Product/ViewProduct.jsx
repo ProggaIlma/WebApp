@@ -7,7 +7,7 @@ import Buttons from '@UIElements/Buttons/Buttons';
 import { useNavigate } from 'react-router-dom';
 import AllInput from '@UIElements/AllInput/AllInput';
 import useFormHook from '@Shared/FormHook/useFormHook';
-import { paymentDetailsApi, paymentUpdateApi } from '@Shared/APIUrls';
+import { productDetailsApi, productUpdateApi } from '@Shared/APIUrls';
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import { useAxiosInstance } from '@Shared/axiosInstance/useAxiosInstance';
 import { useNotification } from '@UIElements/CNotification/useNotification';
@@ -15,18 +15,18 @@ import { ViewDateFormatter } from '@Shared/Utils/utils';
 const { confirm } = Modal;
 const { Content } = Layout;
 
-const ViewPayment = () => {
+const ViewProduct = () => {
   const navigate = useNavigate();
   const { mode, id } = useParams();
   const { setIconsLevel, setSettingsBarLevel, setHeaderTitle } = useContext(NavContext);
   const { axiosInstance } = useAxiosInstance();
   const { api, contextHolder, openNotificationWithIcon } = useNotification();
-  const [paymentData, setpaymentData] = useState('');
+  const [productData, setproductData] = useState('');
   const [isSavingData, setIsSavingData] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    mode == 'view' ? setHeaderTitle('View Payment') : setHeaderTitle('Edit Payment');
+    mode == 'view' ? setHeaderTitle('View Product') : setHeaderTitle('Edit Product');
   }, []);
 
   const [status, setstatus] = useState([
@@ -36,10 +36,10 @@ const ViewPayment = () => {
     { label: 'Refunded', value: 'REFUNDED', disabled: false },
   ]);
   const initialFormState = {
-    payment_intent_id: {
+    product_intent_id: {
       elementType: 'textInput',
       elememtConfig: {
-        placeholder: 'Payment ID',
+        placeholder: 'Product ID',
         arialabel: null,
       },
       validations: {
@@ -84,10 +84,10 @@ const ViewPayment = () => {
       touched: false,
       value: null,
     },
-    inv_payment_date: {
+    inv_product_date: {
       elementType: 'textInput',
       elememtConfig: {
-        placeholder: 'Payment Date',
+        placeholder: 'Product Date',
         arialabel: null,
       },
       validations: {
@@ -119,7 +119,7 @@ const ViewPayment = () => {
     total_amount: {
       elementType: 'priceInput',
       elememtConfig: {
-        placeholder: 'Payment Amount',
+        placeholder: 'Product Amount',
         arialabel: null,
       },
       validations: {
@@ -166,7 +166,7 @@ const ViewPayment = () => {
 
   const onClickSave = () => {
     confirm({
-      title: 'Do you want to save this payment?',
+      title: 'Do you want to save this product?',
       icon: <ExclamationCircleFilled />,
       okText: 'Yes',
       okType: 'primary',
@@ -188,13 +188,13 @@ const ViewPayment = () => {
       setIsSavingData(true);
       let vals = getValuesFromFormState();
       axiosInstance({
-        url: paymentUpdateApi + '/' + id,
+        url: productUpdateApi + '/' + id,
         method: 'PATCH',
         data: { inv_status: vals?.inv_status },
       })
         .then((response) => {
           openNotificationWithIcon('success', null, response?.data?.message || 'Sucessfully saved data!');
-          navigate('/payment-layout/payment');
+          navigate('/product-layout/product');
           setTimeout(() => {
             setIsSavingData(false);
           }, 3000);
@@ -213,16 +213,16 @@ const ViewPayment = () => {
   useEffect(() => {
     if ((mode == 'view' || mode == 'edit') && id != null) {
       axiosInstance({
-        url: paymentDetailsApi + '/' + id,
+        url: productDetailsApi + '/' + id,
         method: 'GET',
       })
         .then((res) => {
-          res.data.invoice.inv_payment_date = res.data?.invoice?.inv_payment_date ? ViewDateFormatter(res.data?.invoice?.inv_payment_date) : '';
+          res.data.invoice.inv_product_date = res.data?.invoice?.inv_product_date ? ViewDateFormatter(res.data?.invoice?.inv_product_date) : '';
           res.data.invoice.org_name = res.data?.invoice?.org?.org_name ? res.data?.invoice?.org?.org_name : '';
 
           res.data.invoice.subs_plan_name = res.data?.invoice?.subs_plan?.subs_plan_name ? res.data?.invoice?.subs_plan?.subs_plan_name : '';
           setFetchedDataInForm(res.data?.invoice);
-          setpaymentData(res.data?.invoice);
+          setproductData(res.data?.invoice);
 
           setIsFormValid(true);
           setIsLoading(false);
@@ -256,7 +256,7 @@ const ViewPayment = () => {
             btntext="Back"
             w={80}
             onClickFunc={() => {
-              navigate('/payment-layout/payment');
+              navigate('/product-layout/product');
             }}
             key={3333}
           />
@@ -297,4 +297,4 @@ const ViewPayment = () => {
     </Layout>
   );
 };
-export default ViewPayment;
+export default ViewProduct;

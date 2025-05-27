@@ -4,22 +4,22 @@ import { Route } from "react-router-dom";
 import HomeLayout from "@Layouts/HomeLayout/HomeLayout";
 import PageNotFound from "@ModulePages/NotFoundNoAuth/PageNotFound";
 
-import PaymentLayout from "@ModulePages/Payment/PaymentLayout";
-import ViewPayment from "@ModulePages/Payment/ViewPayment";
+import ProductLayout from "@ModulePages/Product/ProductLayout";
+import ViewProduct from "@ModulePages/Product/ViewProduct";
 
-import Payment from "@ModulePages/Payment/Payment";
+import Product from "@ModulePages/Product/Product";
 
 
 export const getLoggedInRoutes = () => {
   return (
     <Route path="/" element={<HomeLayout />}>
-      <Route path="/payment-layout" element={<PaymentLayout />}>
-        <Route index exact element={<Payment />} />
-        <Route path="payment" exact element={<Payment />} />
+      <Route path="/product-layout" element={<ProductLayout />}>
+        <Route index exact element={<Product />} />
+        <Route path="product" exact element={<Product />} />
       </Route>
      
    
-      <Route path="paymentDetails/:mode/:id" exact element={<ViewPayment />} />
+      <Route path="productDetails/:mode/:id" exact element={<ViewProduct />} />
 
       <Route path="*" element={<PageNotFound />} />
     </Route>

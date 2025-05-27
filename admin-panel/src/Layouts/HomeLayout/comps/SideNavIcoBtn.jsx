@@ -3,12 +3,12 @@ import React, { useContext } from 'react';
 import { NavContext } from '@Shared/NavContexts/nav-contexts';
 import { Tooltip, Badge } from 'antd';
 
-import Payment from '@Assets/SideNavIcons/Payment.svg';
+import Product from '@Assets/SideNavIcons/Product.svg';
 
 import './SideNavIcoBtn.css';
 const SideNavIcoBtn = ({ el, OpenDrawerOrNavigate, index, newAnnouncement, unreadConv }) => {
   const selectedIcons = {
-    Payment: Payment,
+    Product: Product,
   };
   const { iconsLevel } = useContext(NavContext);
 

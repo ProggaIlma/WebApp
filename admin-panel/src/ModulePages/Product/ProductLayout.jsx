@@ -7,7 +7,7 @@ import { Outlet, useLocation, useNavigate } from "react-router-dom";
 
 const { Sider, Content } = Layout;
 
-const PaymentLayout = () => {
+const ProductLayout = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { setIconsLevel, setSettingsBarLevel } = useContext(NavContext);
@@ -31,14 +31,14 @@ const PaymentLayout = () => {
 
   const prdList = [
     {
-      name: "Payment",
+      name: "Product",
       level: 0,
-      title: "Payment",
-      routePath: "/payment-layout/payment",
+      title: "Product",
+      routePath: "/product-layout/product",
     }
   ];
   const locationList = {
-    "/payment-layout/payment": 0
+    "/product-layout/product": 0
   };
   return (
     <Layout style={layoutStyle}>
@@ -85,4 +85,4 @@ const PaymentLayout = () => {
   );
 };
 
-export default PaymentLayout;
+export default ProductLayout;

@@ -9,8 +9,6 @@ import { productApi } from '@Shared/APIUrls';
 import Buttons from '@UIElements/Buttons/Buttons';
 import ProductTable from './ProductTable';
 import { debounce } from '@Shared/Utils/utils';
-import ProductFilterDrawer from '@ModulePages/Product/ProductFilterDrawer';
-import { downloadCSVFile } from '@Shared/Utils/utils';
 const { Content } = Layout;
 
 
@@ -95,13 +93,7 @@ const Product = ()=>{
                             allowClear={true}
                         />
                     </Flex>
-                    <Buttons
-                        btntyp="colored-btn"
-                        btntext={"Export CSV"}
-                        w={160}
-                        btnColor={"#8A7CFF"}
-                        onClickFunc={downloadCSVData}
-                    />
+                   
                 </Flex>
                     
         <ProductTable

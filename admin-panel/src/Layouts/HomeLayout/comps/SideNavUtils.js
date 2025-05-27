@@ -4,10 +4,10 @@ export const MasterSideNavLinks = [
    
   
     {
-        name: "Payment",
+        name: "Product",
         level:2,
-        title: "Payment",
-        routePath: "/payment-layout/payment",
+        title: "Product",
+        routePath: "/product-layout/product",
     },
     
    
