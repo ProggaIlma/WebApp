@@ -1,11 +1,15 @@
 const serverUrl =
   "https://genai-backend-fbe4ecgffrh4hzhs.southeastasia-01.azurewebsites.net/api";
-const localUrl = "http://localhost:5000/api";
+const localUrl = "http://localhost:5000/";
 
 export const baseURL = serverUrl;
 export const loginURL = `${baseURL}/tz/login`;
 export const setPasswordURL = `${baseURL}/tz/set-password`;
 export const resetPasswordReqURL = `${baseURL}/tz/forgot-password`;
+
+//Product
+// http://localhost:5000/product/getProducts?page=1&limit=5
+export const productApi = `${baseURL}/product/getProducts`;
 
 // Image Upload
 export const uploadImageToCloud = `${baseURL}/crm/upload-image`;
