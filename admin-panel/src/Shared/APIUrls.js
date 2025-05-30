@@ -9,31 +9,11 @@ export const resetPasswordReqURL = `${baseURL}/tz/forgot-password`;
 
 
 
-// Image Upload
-export const uploadImageToCloud = `${baseURL}/crm/upload-image`;
-export const uploadFileToCloud = `${baseURL}/crm/upload-file`;
-export const uploadAudioToCloud = `${baseURL}/crm/upload-audio-file`;
-export const getFileFromCloud = `${baseURL}/crm/get-cloud-file`;
 
-//Profile Settings
-export const getProfileSettings = `${baseURL}/crm/profile-settings`;
-
-// Subscriber
-export const subscriberUrl = `${baseURL}/tz/org-subscribers`;
-export const subscriberInfoUrl = `${baseURL}/tz/org-subscriber-info`;
-export const subscriptionPlansUrl = `${baseURL}/org/all-subplans`;
-export const orgMembersUrl = `${baseURL}/tz/org-members`;
-export const orgProductsUrl = `${baseURL}/tz/org-products`;
-
-//Subscription
-
-export const subscriptionApi = `${baseURL}/tz/subscription`;
-// TopUp
-export const topUpAPI = `${baseURL}/tz/topup`;
 //Product
-export const productDetailsApi = `${baseURL}/tz/products/get-product`;
+export const productDetailsApi = `${baseURL}/product`;
 export const productApi = `${baseURL}/product/getProducts`;
-export const productUpdateApi = `${baseURL}/tz/products/update-product`;
+export const productUpdateApi = `${baseURL}/product`;
 
 // setting
 export const generalSettingAPI = `${baseURL}/tz/setting`;

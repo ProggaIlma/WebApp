@@ -1,11 +1,9 @@
 export const MasterSideNavLinks = [
     
-    
-   
-  
+
     {
         name: "Product",
-        level:2,
+        level:1,
         title: "Product",
         routePath: "/product-layout/product",
     },

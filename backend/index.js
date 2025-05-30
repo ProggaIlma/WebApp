@@ -8,13 +8,19 @@ import categoryrouter from './routes/category.route.js';
 import uploadrouter from './routes/upload.route.js';
 import orderrouter from './routes/order.route.js';
 import reviewrouter from './routes/review.route.js';
+import cors from 'cors';
+
 dotenv.config();
 
 const app = express();
 
 // Connect to MongoDB
 await connectDB();
-
+// CORS configuration
+app.use(cors({
+  origin: 'http://localhost:5173', // React app origin
+  credentials: true,
+}));
 // Middleware
 app.use(express.json()); // ✅ Add this
 app.use(express.urlencoded({ extended: true })); // ✅ And this

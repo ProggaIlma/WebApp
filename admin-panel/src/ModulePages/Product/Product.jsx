@@ -19,8 +19,8 @@ const Product = ()=>{
        useEffect(() => {
            
             setHeaderTitle('Product');
-            setIconsLevel(2);
-            setSettingsBarLevel(2);
+            setIconsLevel(0);
+         
         }, []);
            const debouncedSearch = debounce((value) => {
                 setSearchText(value);
@@ -83,7 +83,7 @@ const Product = ()=>{
              {contextHolder}
                 <Content style={{ padding: 10, height: '88vh', borderRadius: borderRadiusLG }}>
                   
-                <Flex>
+                <Flex justify=''>
                     <Flex gap={10} flex={1}>
                         <Input
                             placeholder="Search by Product Name"
@@ -93,7 +93,9 @@ const Product = ()=>{
                             allowClear={true}
                         />
                     </Flex>
-                   
+                   <Buttons btntext="Add Product"  w={100}  btntyp="colored-btn" onClickFunc={()=>{ 
+                    
+                   onClickViewProduct('create','new');}}/>
                 </Flex>
                     
         <ProductTable
