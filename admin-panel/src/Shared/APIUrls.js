@@ -14,6 +14,8 @@ export const resetPasswordReqURL = `${baseURL}/tz/forgot-password`;
 export const productDetailsApi = `${baseURL}/product`;
 export const productApi = `${baseURL}/product/getProducts`;
 export const productUpdateApi = `${baseURL}/product`;
+export const uploadImageToCloud = `${baseURL}/upload`;
+
 
 // setting
 export const generalSettingAPI = `${baseURL}/tz/setting`;

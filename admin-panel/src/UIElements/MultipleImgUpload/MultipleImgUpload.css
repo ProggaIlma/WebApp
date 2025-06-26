@@ -1,0 +1,86 @@
+/* .image_div {
+  margin-right: 5px;
+  position: relative;
+  margin-top: 8px;
+  height: 160px;
+  width: 80%;
+  border-radius: 6px;
+} */
+.image_div {
+  position: relative;
+  margin: auto;
+  height: 160px;
+  width: 80%;
+  border-radius: 6px;
+  margin-top: 8px;
+}
+
+.image_div img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.image_div .delete_button {
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+  background: black;
+  color: white;
+  font-family: sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 50%;
+  -webkit-transition: visibility 0s, opacity 0.5s linear;
+  transition: visibility 0s, opacity 0.5s linear;
+  height: 80px;
+  width: 80px;
+  font-size: 50px;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.delete_button p {
+  font-size: 50px;
+  text-align: center;
+}
+
+.image_div:hover {
+  cursor: pointer;
+}
+
+.image_div:hover .delete_button {
+  visibility: visible;
+  opacity: 0.7;
+  align-items: center;
+}
+
+.gallery_logo {
+  width: 80px;
+  height: 80px;
+  margin: auto;
+}
+.file {
+  display: none;
+}
+
+/* //////////// */
+.noimage_div {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.noimage img {
+  width: 30%;
+  height: 30%;
+  margin: auto;
+  border-radius: 5px;
+}
+.nogallery_logo {
+  height: 60px;
+  width: 60px;
+  margin: auto;
+}

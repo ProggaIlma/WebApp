@@ -11,6 +11,7 @@ import { productDetailsApi, productUpdateApi } from '@Shared/APIUrls';
 import { ExclamationCircleFilled } from '@ant-design/icons';
 import { useAxiosInstance } from '@Shared/axiosInstance/useAxiosInstance';
 import { useNotification } from '@UIElements/CNotification/useNotification';
+import MultipleImgUpload from '@UIElements/MultipleImgUpload/MultipleImgUpload';
 
 const { confirm } = Modal;
 const { Content } = Layout;
@@ -21,7 +22,10 @@ const ViewProduct = () => {
   const { setHeaderTitle } = useContext(NavContext);
   const { axiosInstance } = useAxiosInstance();
   const { contextHolder, openNotificationWithIcon } = useNotification();
-
+  
+  const [allowedFileTypes, setAllowedFileTypes] = useState(["jpeg", "JPG", "JPEG"]);
+  const [isBannerLoading, setIsBannerLoading] = useState(false);
+  const [bannerImgs, setBannerImgs] = useState([]);
   const [isSavingData, setIsSavingData] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -101,7 +105,18 @@ const ViewProduct = () => {
       },
     });
   };
-
+ const getTheNewsfeedBanners = (images) => {
+    const newsfeedBanners = {};
+    for (let i = 1; i <= 3; i++) {
+      const matchingImage = images.find((image) => image.img_ind === i);
+      if (matchingImage) {
+        newsfeedBanners[`nf_banner_${i}`] = matchingImage.img_url;
+      } else {
+        newsfeedBanners[`nf_banner_${i}`] = null;
+      }
+    }
+    return newsfeedBanners;
+  };
   const onConfirmOrCancel = (shouldSave) => {
     if (shouldSave) {
       setIsSavingData(true);
@@ -169,7 +184,22 @@ const ViewProduct = () => {
           <Buttons btntyp="cancel-btn" btntext="Back" w={80} onClickFunc={() => navigate('/product-layout/product')} />
           {mode !== 'view' && <Buttons btntyp="colored-btn" disabled={!isFormValid} onClickFunc={onClickSave} btntext="Save" w={80} btnColor="#8A7CFF" />}
         </Flex>
-
+<Grid justifyContent="center" sx={{ padding: "15px" }}>
+          <div className="stckdiv">
+            <Typography variant="h4" component="div">
+              Post Images
+            </Typography>
+          </div>
+          <MultipleImgUpload
+            mulImgType={"BANNER"}
+            targetImgs={bannerImgs}
+            setTargetImgs={setBannerImgs}
+            isInLoading={isBannerLoading}
+          
+            allowedFileTypes={allowedFileTypes}
+            mode={mode}
+          />
+        </Grid>
         <Card style={{ margin: '30px' }}>
           {isLoading ? (
             <HomePageLoader />
