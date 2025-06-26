@@ -25,6 +25,7 @@ jobs:
         cache: 'npm'
     
     - name: "Installing Dependencies"
+      working-directory: fe
       run: npm i
 
     - name: "Build Command"
@@ -48,6 +49,7 @@ jobs:
         cache: 'npm'
     
     - name: "Installing Dependencies"
+      working-directory: fe
       run: npm i
 
     - name: "Running test cases"
