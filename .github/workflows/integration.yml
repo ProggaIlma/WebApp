@@ -22,7 +22,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm  # ✅ only this is valid with v4
-
+        working-directory: fe
+        
       - name: Install dependencies
         working-directory: fe
         run: npm install
