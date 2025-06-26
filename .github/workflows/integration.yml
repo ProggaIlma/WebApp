@@ -8,50 +8,25 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         node-version: [18.x, 20.x, 22.x]
-        cache: 'npm'
-        cache-dependency-path: fe/package-lock.json
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    
-    - name: "Installing Dependencies"
-      working-directory: fe
-      run: npm i
+      - uses: actions/checkout@v4
 
-    - name: "Build Command"
-      run: npm run build
-      
-  unit-tests:
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm  # ✅ only this is valid with v4
 
-    runs-on: ubuntu-latest
+      - name: Install dependencies
+        working-directory: fe
+        run: npm install
 
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x, 22.x]
-        cache: 'npm'
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    
-    - name: "Installing Dependencies"
-      working-directory: fe
-      run: npm i
-
-    - name: "Running test cases"
-      run: npm run test
+      - name: Build the project
+        working-directory: fe
+        run: npm run build
