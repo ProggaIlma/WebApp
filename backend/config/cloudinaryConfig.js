@@ -1,9 +1,9 @@
 import cloudinary from 'cloudinary';
 
 cloudinary.config({
-  cloud_name: 'dpfvmnrzh',  
-  api_key: '594884994223939',    
-  api_secret: 'xzaULQaf12Bd6fsm8u5zw3uacGE'  
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
 console.log("Cloudinary config loaded:", cloudinary.config()); // <-- ADD THIS
 
