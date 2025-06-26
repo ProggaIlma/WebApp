@@ -25,7 +25,7 @@ jobs:
         cache: 'npm'
     
     - name: "Installing Dependencies"
-      run : npm i
+      run: npm i
 
     - name: "Build Command"
       run: npm run build
@@ -48,7 +48,7 @@ jobs:
         cache: 'npm'
     
     - name: "Installing Dependencies"
-      run : npm i
+      run: npm i
 
     - name: "Running test cases"
       run: npm run test
