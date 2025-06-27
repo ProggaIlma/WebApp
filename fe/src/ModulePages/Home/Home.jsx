@@ -3,7 +3,9 @@ import FlashSale from './flashSale'
 import Recom from './recommended';
 import Category from './categories';
 import FullPageCarousel from '../../components/FullPageCarousel';
-
+import { useAxiosInstance } from "@Shared/axiosInstance/useAxiosInstance.js";
+import { getProducts } from '@Shared/ApiURLs.js';
+import { useState,useEffect } from 'react';
 
 const images = [
   '/assets/images/one.jpg',
@@ -12,7 +14,27 @@ const images = [
   // Add more image paths as needed
 ];
 
+
+
 const Home = ()=>{
+    const { axiosInstance } = useAxiosInstance();
+    const [saleProducts, setSaleProducts] = useState([]);
+const getSaleProducts = () => {
+    axiosInstance({
+      url: getProducts,
+      method: "GET",
+    })
+      .then((response) => {
+        console.log(response.data);
+        setSaleProducts(response.data);
+      })
+      .catch((error) => {
+
+      });
+  };
+useEffect(() => {
+    getSaleProducts();
+  }, []);
     return <div className='mt-15'>
         <Grid sx={{marginTop:{xs:"123px",md:"87px"}}}>
         <FullPageCarousel images={images} />
