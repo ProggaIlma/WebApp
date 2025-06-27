@@ -134,7 +134,7 @@ const HomePageHeader = ({ onLogOut }) => {
                 >
                   {auth.user?.tz_admin_username}
                 </Text>
-                <Avatar src={""} size="large" icon={<UserOutlined />} />
+                <Avatar size="large" icon={<UserOutlined />} />
               </div>
             </Dropdown>
           </Space>

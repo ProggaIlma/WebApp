@@ -25,7 +25,7 @@ export const siderStyle = {
 
 
 
-export const       ImgUploaderBox = styled(Card)`
+export const ImgUploaderBox = styled(Card)`
   background-color: #fafcfd;
   width: 100%;
   border: 1px solid #ccd6e7;

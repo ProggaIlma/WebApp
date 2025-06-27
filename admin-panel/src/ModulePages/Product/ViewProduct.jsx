@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { NavContext } from '@Shared/NavContexts/nav-contexts';
-import { Layout, Flex, Col, Row, Card, Modal } from 'antd';
+import { Layout, Flex, Col, Row, Card, Modal, Typography } from 'antd';
 import HomePageLoader from '@UIElements/HomePageLoader/HomePageLoader';
 import Buttons from '@UIElements/Buttons/Buttons';
 import AllInput from '@UIElements/AllInput/AllInput';
@@ -184,9 +184,9 @@ const ViewProduct = () => {
           <Buttons btntyp="cancel-btn" btntext="Back" w={80} onClickFunc={() => navigate('/product-layout/product')} />
           {mode !== 'view' && <Buttons btntyp="colored-btn" disabled={!isFormValid} onClickFunc={onClickSave} btntext="Save" w={80} btnColor="#8A7CFF" />}
         </Flex>
-<Grid justifyContent="center" sx={{ padding: "15px" }}>
+<div style={{ padding: "15px" }}>
           <div className="stckdiv">
-            <Typography variant="h4" component="div">
+            <Typography >
               Post Images
             </Typography>
           </div>
@@ -199,7 +199,7 @@ const ViewProduct = () => {
             allowedFileTypes={allowedFileTypes}
             mode={mode}
           />
-        </Grid>
+        </div>
         <Card style={{ margin: '30px' }}>
           {isLoading ? (
             <HomePageLoader />

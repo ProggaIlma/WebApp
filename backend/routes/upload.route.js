@@ -14,42 +14,37 @@ const uploadrouter = express.Router();
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-// POST route for multiple file upload
-uploadrouter.post('/', upload.array('images', 10), async (req, res) => {
+// POST route for **single** file upload
+uploadrouter.post('/', upload.single('image'), async (req, res) => {
   try {
-    const files = req.files;
+    const file = req.file;
 
-    if (!files || files.length === 0) {
-      return res.status(400).json({ error: 'No files uploaded' });
+    if (!file) {
+      return res.status(400).json({ error: 'No file uploaded' });
     }
 
+    const ext = path.extname(file.originalname) || '.png';
+    const fileName = `temp-upload-${Date.now()}-${Math.random().toString(36).substr(2, 5)}${ext}`;
     const tempDir = path.join(__dirname, 'temp');
+
     if (!fs.existsSync(tempDir)) {
       fs.mkdirSync(tempDir);
     }
 
-    const uploadedUrls = [];
+    const tempPath = path.join(tempDir, fileName);
 
-    for (const file of files) {
-      const ext = path.extname(file.originalname) || '.png';
-      const fileName = `temp-upload-${Date.now()}-${Math.random().toString(36).substr(2, 5)}${ext}`;
-      const tempPath = path.join(tempDir, fileName);
+    // Write buffer to temp file
+    fs.writeFileSync(tempPath, file.buffer);
 
-      // Write buffer to temp file
-      fs.writeFileSync(tempPath, file.buffer);
+    // Upload to Cloudinary
+    const result = await cloudinary.uploader.upload(tempPath, {
+      public_id: `upload_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`
+    });
 
-      // Upload to Cloudinary
-      const result = await cloudinary.uploader.upload(tempPath, {
-        public_id: `upload_${Date.now()}_${Math.random().toString(36).substr(2, 5)}`
-      });
+    // Delete temp file
+    fs.unlinkSync(tempPath);
 
-      // Delete temp file
-      fs.unlinkSync(tempPath);
-
-      uploadedUrls.push(result.secure_url);
-    }
-
-    return res.json({ message: 'Upload successful', urls: uploadedUrls });
+    return res.json({ message: 'Upload successful', url: result.secure_url });
 
   } catch (err) {
     console.error('Upload error:', err);
